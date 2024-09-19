@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปรัชญา</title>
+    <style>
+        /* รีเซ็ตสไตล์พื้นฐาน */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 16px; /* ขนาดตัวหนังสือเริ่มต้นใน body */
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* สไตล์ของโมดอล */
+        .modal {
+            display: block; /* แสดงโมดอลเสมอในตัวอย่างนี้ */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5); /* สีพื้นหลังที่มีความโปร่งใส */
+            display: flex; /* ใช้ flexbox เพื่อจัดการตำแหน่งของกล่องโมดอล */
+            align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+            justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+        }
+
+        .modal-content {
+            position: relative;
+            background-image: url('C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/07.11.png');
+            background-size: cover; /* ปรับขนาดภาพให้ครอบคลุมทั้งกล่อง */
+            background-position: center; /* จัดตำแหน่งภาพให้ตรงกลาง */
+            width: 100%; /* กำหนดความกว้างของกล่องโมดอลเป็น 100% ของหน้าจอ */
+            height: 100%; /* กำหนดความสูงของกล่องโมดอลเป็น 100% ของหน้าจอ */
+            max-width: 100%; /* ความกว้างสูงสุดเป็น 100% ของหน้าจอ */
+            max-height: 100%; /* ความสูงสูงสุดเป็น 100% ของหน้าจอ */
+            box-sizing: border-box; /* รวมการเติมและขอบในการคำนวณขนาดรวม */
+            text-align: center; /* จัดแนวข้อความในโมดอลให้ชิดกลาง */
+            color: #ffffff; /* สีตัวหนังสือ */
+            padding: 20px; /* ขนาดการเติม */
+            border-radius: 10px; /* เพิ่มขอบมน */
+            overflow: auto; /* เพิ่มการเลื่อนเนื้อหาภายใน */
+   
+        }
+
+        .close {
+    color:  #ffcc33;
+    font-size: 75px; /* ขนาดตัวอักษรของปุ่มปิด */
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: color 0.3s ease, transform 0.3s ease; /* เพิ่มการเปลี่ยนแปลงสีและขนาด */
+    z-index: 2; /* ให้แน่ใจว่าปุ่มอยู่เหนือเนื้อหาอื่น */
+}
+
+.close:hover,
+.close:focus {
+    color: #ffffff; /* เปลี่ยนสีเมื่อวางเมาส์ */
+    text-decoration: none;
+    transform: rotate(90deg); /* หมุนปุ่มปิด */
+}
+
+
+.modal-content h1 {
+    font-size: 3.5em; /* ขนาดตัวอักษรของหัวข้อใหญ่ */
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center; /* จัดตำแหน่งตัวอักษรตรงกลาง */
+}
+
+        .modal-content h2 {
+            font-size: 2em; /* ขนาดตัวอักษรของหัวข้อรอง */
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px #ffcc33;
+        }
+
+        .modal-content p {
+    font-size: 1.5em; /* ขนาดตัวอักษรของข้อความ */
+    margin-bottom: 15px;
+    color: #000000;
+    background-color: #ffffffd9;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease; /* การเปลี่ยนแปลงทุกอย่างนุ่มนวล */
+    transform: translateY(0); /* ตำแหน่งเริ่มต้น */
+}
+
+.modal-content p:hover {
+    transform: translateY(-2px) scale(1.02); /* เด้งขึ้นเล็กน้อยและขยายเล็กน้อย */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
+    background-color: #f5f5f5; /* เปลี่ยนสีพื้นหลัง */
+    color: #000078;
+}
+   
+
+.modal-content p:hover b {
+    color:  #ff7300; /* เปลี่ยนสีของข้อความที่อยู่ในแท็ก <b> เป็นสีแดงเมื่อชี้ */
+}
+    
+        @keyframes textSlide {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .left-align {
+    text-align: left; /* จัดข้อความให้ชิดซ้าย */
+}
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1>ปรัชญา วิสัยทัศน์ พันธกิจ</h1>
+            <hr size="2" color="#ffffff">
+            <h2>ปรัชญาวิทยาลัยเทคนิคสัตหีบ</h2>
+            <p><B>เรียนดี  มีวินัย  ใฝ่สร้างสรรค์  ขยันทำงาน  ผสานคุณธรรม </B></p>
+            <h2>วิสัยทัศน์</h2>
+            <p><B>เป็นองค์กรแห่งการเรียนรู้สู่ความเป็นเลิศทางด้านวิชาชีพเพื่อการทำงาน</B></p>
+            <h2>พันธกิจ (Mission)</h2>
+            <div class="left-align">
+            <p> <b>1. </b> การบริหารจัดการเชิงรุก โดยผู้บริหารมีภาวะผู้นำ<br>
+                <b>2. </b> การสร้างความเป็นหุ้นส่วน (Partnership)<br>
+                <b>3. </b> การพัฒนาหลักสูตรและการจัดการเรียนการสอนให้สอดคล้องกับความต้องการของตลาดแรงงาน (Demand Driven)<br>
+                <b>4. </b> การส่งเสริมการเรียนรู้ตลอดชีวิต (Lifelong Learning)<br>
+                <b>5. </b> วิจัย พัฒนา และการจัดองค์การแห่งการเรียนรู้ (Research/learning organization)<br>
+                <b>6. </b> บูรณาการปรัชญาเศรษฐกิจพอเพียงในการบริหารงานทุกภาคส่วน<br>
+                <b>7. </b> เป็นองค์กรที่มีหน้าที่รับรองสมรรถนะของบุคคลตามมาตรฐานอาชีพ </p>
+        </div>
+    </div>
+
+    <script>
+          function closeModal() {
+            var modal = document.querySelector('.modal');
+            modal.style.display = "none";
+            // Scroll to the top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Redirect to the main page
+            window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+        }
+
+        // ปิดโมดอลเมื่อผู้ใช้คลิกที่ไหนก็ได้ด้านนอก
+        window.onclick = function(event) {
+            var modal = document.querySelector('.modal');
+            if (event.target === modal) {
+                modal.style.display = "none";
+                // Scroll to the top of the page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Redirect to the main page
+                window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+            }
+        }
+    </script>
+</body>
+</html>

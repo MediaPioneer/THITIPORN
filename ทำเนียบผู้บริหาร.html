@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทำเนียบผู้บริหาร</title>
+    <style>
+        /* รีเซ็ตสไตล์พื้นฐาน */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 16px;
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* สไตล์ของโมดอล */
+        .modal {
+            display: block; /* แสดงโมดอลเสมอในตัวอย่างนี้ */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5); /* สีพื้นหลังที่มีความโปร่งใส */
+            display: flex; /* ใช้ flexbox เพื่อจัดการตำแหน่งของกล่องโมดอล */
+            align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+            justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+        }
+
+        .modal-content {
+            position: relative;
+            background-image: url('C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/07.10.png');
+            background-size: cover; /* ปรับขนาดภาพให้ครอบคลุมทั้งกล่อง */
+            background-position: center; /* จัดตำแหน่งภาพให้ตรงกลาง */
+            width: 100%; /* กำหนดความกว้างของกล่องโมดอลเป็น 100% ของหน้าจอ */
+            height: 100%; /* กำหนดความสูงของกล่องโมดอลเป็น 100% ของหน้าจอ */
+            max-width: 100%; /* ความกว้างสูงสุดเป็น 100% ของหน้าจอ */
+            max-height: 100%; /* ความสูงสูงสุดเป็น 100% ของหน้าจอ */
+            box-sizing: border-box; /* รวมการเติมและขอบในการคำนวณขนาดรวม */
+            text-align: center; /* จัดแนวข้อความในโมดอลให้ชิดกลาง */
+            color: #000000; /* สีตัวหนังสือ */
+            padding: 20px; /* ขนาดการเติม */
+            border-radius: 10px; /* เพิ่มขอบมน */
+            overflow: auto; /* เพิ่มการเลื่อนเนื้อหาภายใน */
+        }
+
+        .close {
+            color: #ffcc33;
+            font-size: 90px; /* ขนาดตัวอักษรของปุ่มปิด */
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            transition: color 0.3s ease, transform 0.3s ease; /* เพิ่มการเปลี่ยนแปลงสีและขนาด */
+            z-index: 2; /* ให้แน่ใจว่าปุ่มอยู่เหนือเนื้อหาอื่น */
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ff8000; /* เปลี่ยนสีเมื่อวางเมาส์ */
+            text-decoration: none;
+            transform: rotate(90deg); /* หมุนปุ่มปิด */
+        }
+
+        .modal-content h1 {
+    font-size: 3.5em; /* ขนาดตัวอักษรของหัวข้อใหญ่ */
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center; /* จัดตำแหน่งตัวอักษรตรงกลาง */
+}
+
+.modal-content p {
+    font-size: 1.75em; /* ขนาดตัวอักษรของข้อความ */
+    margin-bottom: 15px;
+    color: #000000;
+    background-color: #ffffffd9;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease; /* การเปลี่ยนแปลงทุกอย่างนุ่มนวล */
+    transform: translateY(0); /* ตำแหน่งเริ่มต้น */
+}
+
+.modal-content p:hover {
+    transform: translateY(-10px) scale(1.06); /* เด้งขึ้นเล็กน้อยและขยายเล็กน้อย */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
+    background-color: #f5f5f5; /* เปลี่ยนสีพื้นหลัง */
+    color: #000078;
+}
+   
+
+.modal-content p:hover b {
+    color: rgb(218, 0, 62); /* เปลี่ยนสีของข้อความที่อยู่ในแท็ก <b> เป็นสีแดงเมื่อชี้ */
+}
+
+        .executive-name {
+            font-weight: bold; /* ตัวหนา */
+            display: block; /* ขึ้นบรรทัดใหม่ */
+        }
+
+        /* สีหลักของรายชื่อ */
+        .color1 { color: #ff5733; }
+        .color2 { color: #33c4ff; }
+        .color3 { color: #ffcc33; }
+        .color4 { color: #28a745; }
+        .color5 { color: #dc3545; }
+        .color6 { color: #17a2b8; }
+
+        @keyframes textSlide {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1>ทำเนียบผู้บริหาร</h1>
+            <hr size="2" color="#ffffff">
+            
+            <!-- ทำเนียบผู้บริหารเป็นข้อความยาว -->
+            <p>
+                <span class="executive-name color1">1. นายประพัฒน์ แสงวนิช</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2512 – พ.ศ. 2513</span>
+                <span class="executive-name color1">2. นายสงวน แก้วมรกต</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2513 – พ.ศ. 2513</span>
+                <span class="executive-name color1">3. นายสกุล เวชชกร</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2513 – พ.ศ. 2519</span>
+
+                <span class="executive-name color2">4. นายจรุง ผาสุวรรณ</span>
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2520 – พ.ศ. 2522</span>
+                <span class="executive-name color2">5. นายจรูญ ชูลาภ</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2522 – พ.ศ. 2528</span>
+                <span class="executive-name color2">6. นายสงวน บุญปิยทัศน์</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2528 – พ.ศ. 2530</span>
+
+                <span class="executive-name color3">7. นายเชิดเชลง ชิตชวนกิจ</span>
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2530 – พ.ศ. 2531</span>
+                <span class="executive-name color3">8. นายวิชัย ป้อมประเสริฐ</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2531 – พ.ศ. 2535</span>
+                <span class="executive-name color3">9. นายสุชิน วังบรรพต</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2535 – พ.ศ. 2538</span>
+
+                <span class="executive-name color4">10. นายทรงสวัสดิ์ ทิพย์คงคา</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2539 – พ.ศ. 2540</span>
+                <span class="executive-name color4">11. นายสมศักดิ์ สุหร่ายคิมหันต์</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2540 – พ.ศ. 2541</span>
+                <span class="executive-name color4">12. นายพิษณุ จงไพบูลย์สวัสดิ์</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2541 – พ.ศ. 2545</span><br>
+                <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ผ13.png" />
+                <span class="executive-name color5">13. นายวัชระ อนุศาสนกุล</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2545 – พ.ศ. 2551</span><br>
+                <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ผ14.png" />
+                <span class="executive-name color5">14. นายสมชาย ธำรงสุข</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2551 – พ.ศ. 2553</span><br>
+                <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ผ15.png" />
+                <span class="executive-name color5">15. นายวัชรินทร์ ศิริพานิช</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2553 – พ.ศ. 2559</span><br>
+                <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ผ16.png" />
+                <span class="executive-name color6">16. นายศักดิ์ชัย ธีระประทีป</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2559 – พ.ศ. 2560</span><br>
+                <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ผ17.png" />
+                <span class="executive-name color6">17. นายวิชัย หาญพลาชัย</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2560 – พ.ศ. 2562</span><br>
+                <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ผ18.png" />
+                <span class="executive-name color6">18. นางอรทัย โยธินรุ่งเรือง สุดสงวน</span> 
+                <span class="term">ระยะเวลาดำรงตำแหน่ง พ.ศ. 2562 - ปัจจุบัน</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+         function closeModal() {
+            var modal = document.querySelector('.modal');
+            modal.style.display = "none";
+            // Scroll to the top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Redirect to the main page
+            window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+        }
+
+        // ปิดโมดอลเมื่อผู้ใช้คลิกที่ไหนก็ได้ด้านนอก
+        window.onclick = function(event) {
+            var modal = document.querySelector('.modal');
+            if (event.target === modal) {
+                modal.style.display = "none";
+                // Scroll to the top of the page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Redirect to the main page
+                window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+            }
+        }
+    </script>
+</body>
+</html>

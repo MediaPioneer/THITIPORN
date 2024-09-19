@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วิทยาลัยเทคนิคสัตหีบ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset basic styles */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+            background: none;
+        }
+        
+        body {
+    background-image: url("C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/07..png");
+    background-size: contain; /* ปรับขนาดพื้นหลังให้พอดีกับท็อปบล็อค */
+    background-repeat: no-repeat; /* ไม่ให้ภาพซ้ำ */
+    background-position: top; /* กำหนดตำแหน่งภาพให้อยู่ด้านบน */
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'PK Maehongson Round Demo', sans-serif;
+    line-height: 1.6;
+    color: #000000;
+    max-width: 100vw;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0); /* สีแดงที่โปร่งแสง 50% */
+}
+
+
+        header {
+            background-color: rgba(255, 255, 255, 0.5); /* โปร่งแสง */
+            background-size: cover; /* Adjusted for full coverage */
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-size: 18px;
+            border-radius: 10px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            background-color: rgba(255, 255, 255, 0.0);
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            height: 150px;
+            width: 150px;
+        }
+
+        h1 {
+            font-size: 4.5em;
+            color: #000000;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .college-name {
+            font-size: 4.5em;
+            color: #333;
+            text-align: center;
+            background-color: transparent;
+            display: block;
+            margin-top: 10px;
+            padding: 0;
+            border: none;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .college-image {
+            display: block;
+            margin: 20px auto;
+            background-color: transparent;
+            border: none;
+        }
+
+        p {
+            text-indent: 50px;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            float: left;
+            max-width: 90px; /* ปรับขนาดลงจาก 100px เป็น 90px */
+            margin: 0;
+            padding: 1em;
+            background-color: #ffffff;
+            border-right: 1px solid #ddd;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #006699;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        article {
+            font-size: 18px;
+            padding: 1em;
+            overflow: hidden;
+            background-image: url("C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/07.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        article img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            color: #003366;
+            margin-top: 20px;
+            border-bottom: 2px solid #003366;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .box-body {
+            position: relative;
+        }
+
+        .btn-group-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 6px;
+            margin: 10px;
+            font-size: 1.5em;
+            color: #fff;
+            background-color: #1a0099;
+            border: 2px solid #333;
+            text-decoration: none;
+            border-radius: 8px;
+            z-index: 20;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0, 42, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn i {
+            margin-right: 10px; /* เพิ่มระยะห่างระหว่างไอคอนกับข้อความ */
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: width 0.4s ease, height 0.4s ease;
+            border-radius: 50%;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover {
+            background-color: #ff3333;
+            color: #fff;
+            transform: scale(1.1) translateY(-10px);
+            box-shadow: 0 12px 24px rgba(255, 200, 20, 0.814);
+        }
+
+        .btn:hover::before {
+            width: 0;
+            height: 0;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .box-solid, .large-box, .center-box {
+            border: 2px solid #333;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            font-size: 1.5em;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .box-solid {
+            flex: 1;
+            max-width: 20%; /* ลดขนาดลงจาก 25% เป็น 20% */
+        }
+
+        .large-box {
+            flex: 3; /* เพิ่มขนาดขึ้นเป็น 3 เท่า */
+            max-width: 60%; /* เพิ่มขนาดขึ้นจาก 50% เป็น 60% */
+        }
+
+        .center-box {
+            flex: 3; /* เพิ่มขนาดขึ้นเป็น 3 เท่า */
+            max-width: 60%; /* เพิ่มขนาดขึ้นจาก 50% เป็น 60% */
+        }
+
+        .menu-box {
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .menu-box ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .menu-box ul li {
+            margin: 0;
+        }
+
+        .menu-box ul li a {
+            text-decoration: none;
+            color: #006699;
+            font-size: 1.5em;
+            padding: 15px 25px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .menu-box ul li a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1024px;
+            margin: auto;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .navigation button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        .navigation button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .top-block {
+            background-image: url("C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/07.7.png");
+            border: 2px solid #333;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.5em;
+            width: 100%;
+            height: 141px;
+            box-sizing: border-box;
+            margin: 0;
+            position: relative;
+            z-index: 5;
+            background-size: contain; /* ปรับขนาดรูปให้พอดีกับบล็อค */
+            background-repeat: no-repeat; /* ไม่ให้รูปภาพซ้ำ */
+            background-position: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            .logo {
+                height: 100px;
+                width: 100px;
+            }
+
+            header {
+                max-width: 90%;
+                padding: 15px;
+            }
+
+            .box-solid, .large-box, .center-box {
+                max-width: 100%;
+            }
+
+            .box-solid, .center-box {
+                flex: 1 1 100%;
+            }
+        }
+
+ /* สไตล์ของ modal */
+.modal {
+    display: none; /* ซ่อนไว้ก่อน */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* พื้นหลังโปร่งแสง */
+    overflow: auto; /* เลื่อนดูได้ถ้าภาพใหญ่ */
+}
+
+/* สไตล์ของเนื้อหาใน modal */
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    max-width: 95%; /* ขนาดสูงสุดของ modal */
+    max-height: 95%; /* ขนาดสูงสุดของ modal */
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden; /* ซ่อนส่วนเกินของรูปภาพ */
+    display: flex; /* ใช้ flexbox เพื่อจัดการกับรูปภาพ */
+    align-items: center; /* จัดกลางภาพในแนวตั้ง */
+    justify-content: center; /* จัดกลางภาพในแนวนอน */
+}
+
+/* ปุ่มกากะบาท */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #ffbf00; /* สีเริ่มต้นของปุ่ม */
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease; /* การเปลี่ยนสีและหมุนของปุ่มอย่างนุ่มนวล */
+}
+
+.close:hover,
+.close:focus {
+    color: #ff0000; /* เปลี่ยนสีเมื่อวางเมาส์ */
+    text-decoration: none;
+    transform: rotate(90deg); /* หมุนปุ่มปิด */
+}
+
+/* รูปภาพใน modal */
+.modal-img {
+    max-width: 100%; /* ขนาดสูงสุดไม่เกินความกว้างของ modal */
+    max-height: 90vh; /* ขนาดสูงสุดตามความสูงของหน้าจอ */
+    object-fit: contain; /* ให้รูปแสดงอย่างเต็มที่ */
+    display: block; /* แสดงภาพเป็นบล็อก */
+}
+
+/* รูปภาพที่คลิกได้ */
+.img-thumbnail {
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100; /* ขนาดของรูปย่อ ขึ้นอยู่กับขนาดจริงของรูป */
+    height:100; /* รักษาสัดส่วนของรูป */
+}
+
+    </style>
+</head>
+<body>
+    <div class="top-block">
+        <p></p>
+    </div>
+    
+    <div class="box-body">
+        <div class="btn-group-container">
+            <a class="btn" role="button" href=" ประวัติความเป็นมา.html">
+                <i class="fas fa-home"></i> ประวัติความเป็นมา
+            </a>
+            <a class="btn" role="button" href="เอกลักษณ์.html">
+                <i class="fas fa-star"></i> เอกลักษณ์
+            </a>
+            <a class="btn" role="button" href="ปรัชญา.html">
+                <i class="fas fa-lightbulb"></i> ปรัชญา
+            </a>
+            <a class="btn" role="button" href="นโยบาย.html">
+                <i class="fas fa-bullhorn"></i> นโยบาย
+            </a>
+            <a class="btn" role="button" href="ทำเนียบผู้บริหาร.html">
+                <i class="fas fa-users"></i> ทำเนียบ
+            </a>
+            <a class="btn" role="button" href="ผู้จัดทำ.html">
+                <i class="fas fa-pencil-alt"></i> ผู้จัดทำ
+            </a>
+            <a class="btn" role="button" href="ฟอร์ม.html">
+                <i class="fas fa-file-alt"></i> ฟอร์ม
+            </a>
+        </div>
+    </div>
+
+        <article>
+           
+            <div class="box-solid">
+                
+                <div class="box-body">
+                        <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\00.gif" border="0" class="img-responsive thumbnail">
+                    </a>
+                    <p style="text-align:left">
+                        <center><strong><span style="font-size: 1.25em;">วิทยาลัยเทคนิคสัตหีบ</span></strong><br>
+                            <span style="font-size: 0.8em;"><strong>กม.160</strong> 193 หมู่ 3 ต.นาจอมเทียน<br>
+                        อ.สัตหีบ จ.ชลบุรี 20250<br>
+                        โทรศัพท์ 038-238398, 038-238527<br>
+                        โทรสาร 038-237268<br>
+                        E-mail : <span style="color:#005ca2">saraban@tatc.ac.th</span></center><br><br></span>
+                        <center><strong><span style="font-size: 1.25em;">แผนกที่เปิดสอน</strong></span></strong>
+                    </p>
+
+<a href="https://youtu.be/4fYt240emJc?si=fatd7fSEef3CIfGA"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ช่างยนต์.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>
+<a href="https://youtu.be/5MYdAo3L23M?si=6owfjTHNikxd7q-C"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ช่างกล.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>
+<a href="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\ฟอร์ม.html"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ช่างเชื่อมโลหะ.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>     
+<a href="https://youtu.be/Gs1Kw2929vw?si=kCPPQyVDh-LaLTok"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ช่างไฟฟ้ากำลัง.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>   
+<a href="https://youtu.be/Y3hnol4tk1c?si=lBUkAq-AFnnUatPl"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\อิเล็กทรอนิกส์.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>  
+<a href="https://youtu.be/w2MQJ51Pioc?si=Uv7S8of5rE5dMaLo"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ช่างก่อสร้าง.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>  
+<a href="https://youtu.be/aD_QV-VEG04?si=69tBJvgnJY6RRs6z"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ช่างเขียนแบบ.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>  
+<a href="https://youtu.be/sRZyfru1ZAg?si=mSKhOmiKZWCV_Kre"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\เมคคาทรอนิกส์.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>     
+<a href="https://youtu.be/gkvtpdkJ6ew?si=QjD2PXEpPcWpa0J9"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\เครื่องมือวัดและควบคุม.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>   
+<a href="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\ฟอร์ม.html"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\เทคนิคพลังงาน.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>   
+<a href="https://youtu.be/1V5F2nS89_U?si=hFxMtj1rjJtfcaGu"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ช่างอากาศยาน.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>   
+<a href="https://youtu.be/jvbGYAQB70Q?si=91pHE3o2-BF1UxNo"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ระบบขนส่งทางราง.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>   
+<a href="https://youtu.be/fcFJKDL00lE?si=-9R0cKa1G9qK2ph0"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\การบัญชี.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>                 
+<a href="https://youtu.be/oT3VLHq6PBs?si=c7BOU01msgV9xPNW"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\คอมพิวเตอร์ธุรกิจ.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>   
+<a href="https://youtu.be/XzjaOqBs7L4?si=P7eqv9yaZwhOSPrA"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ธุรกิจการบิน.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>   
+<a href="https://youtu.be/xI-4lplgKlM?si=UzPPjY5QNdtyB-B5"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\การจัดการโลจิสติกส์และการจัดการธุรกิจค้าปลีก.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>   
+<a href="https://youtu.be/xubOSux3G4w?si=9jy9fdA3Da8Ob8Se"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\การโรงแรม.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>  
+<a href="https://youtu.be/oieaE8lkmh0?si=VEMN9JnKKr9w1sHf"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\การท่องเที่ยว.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>  
+<a href="https://youtu.be/MD_I-9kHL6w?si=OIfMniIR5VCtjH5V"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\เทคโนโลยีสารสนเทศและเทคโนโลยีคอมพิวเตอร์.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br>  
+<a href="http://www.tatc.ac.th/?usid=1105101717340622&language=Th"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\เทคนิคพื้นฐาน.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br> 
+<a href="https://youtu.be/dQ2FUDYZbUo?si=YcOZt38yeYDGJPVT"target="_blank"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+    <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\สามัญสัมพันธ์.png" border="0" class="img-responsive thumbnail" alt="ช่างยนต์">
+</a>
+<br> 
+                </div>
+            </div>
+            <div class="center-box">
+                <br>
+                <div class="box-body">
+                    <p style="text-align:left">
+                        <center>
+                            <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\0.png" class="half-size img-responsive thumbnail" border="0"><br>   
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oUA-CiBjIVw?si=7yoF0KRhvrEiTuHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br> 
+                            <strong><span style="font-size: 1.5em;">กิจกรรมต่างๆของวิทยาลัย</strong></span></strong><br>  
+                            <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\02.png" class="half-size img-responsive thumbnail" border="0"><br>
+                            <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\03.png" class="half-size img-responsive thumbnail" border="0"><br>
+                            <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\04.png" class="half-size img-responsive thumbnail" border="0"><br>
+                            <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\13.jpg" class="half-size img-responsive thumbnail" border="0"><br>
+                            <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\14.jpg" class="half-size img-responsive thumbnail" border="0"><br>
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        </center>
+                    </p>
+                </div>
+            </div>
+            <div class="box-solid">
+               
+                <div class="box-body">
+                        <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\12.jpg" border="0" class="img-responsive thumbnail">
+                    </a>
+                    <p style="text-align:left">
+                        <center><span style="font-size: 0.9em;"><strong>ดร.อรทัย โยธินรุ่งเรือง สุดสงวน</span></strong><br></span>
+                            <span style="font-size: 0.8em;">ผู้อำนวยการวิทยาลัยเทคนิคสัตหีบ<br>
+                        โทรศัพท์ 062-4539142<br>
+                        E-mail : <span style="color:#005ca2">Orathaiys@tatc.ac.th</span></center> <br></span>
+                        <center><strong><span style="font-size: 1.25em;">หัวหน้าแผนก</strong></span></strong>
+                        <a href="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\หัวหน้าแผนก.png"> <!-- เปลี่ยน URL เป็นลิงก์ที่ต้องการไป -->
+                            <img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\หัวหน้าแผนก.png" border="0" class="img-responsive thumbnail" alt="Worksheet 7">
+                        </a>
+                        <br>
+                        <center><strong><span style="font-size: 1.25em;">ใบงาน</strong></span></strong>
+                        </p>
+                        <img id="img1" src="C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/Worksheet 1.png" class="img-thumbnail" alt="Worksheet 1">
+                        <img id="img2" src="C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/Worksheet 2.png" class="img-thumbnail" alt="Worksheet 2">
+                        <img id="img3" src="C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/Worksheet 3.png" class="img-thumbnail" alt="Worksheet 3">
+                        <img id="img4" src="C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/Worksheet 4.png" class="img-thumbnail" alt="Worksheet 4">
+                        <img id="img5" src="C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/Worksheet 5.png" class="img-thumbnail" alt="Worksheet 5">
+                        <img id="img6" src="C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/Worksheet 6.png" class="img-thumbnail" alt="Worksheet 6">
+                        <img id="img7" src="C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/Worksheet 7.png" class="img-thumbnail" alt="Worksheet 7">
+                        
+                        <!-- กล่องข้อความ (Modal) -->
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span> <!-- ปุ่มกากะบาท -->
+                                <img id="modalImg" class="modal-img" src="" alt="Worksheet">
+                            </div>
+                        </div>
+                    
+                        <script>
+                            // ควบคุมการแสดงผลของ modal
+                            var modal = document.getElementById("myModal");
+                            var modalImg = document.getElementById("modalImg");
+                            var closeBtn = document.getElementsByClassName("close")[0];
+                    
+                            // URLs ของรูปที่จะเปิดใน modal สำหรับแต่ละใบงาน
+                            var imgUrls = [
+                                "C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/ใบงานที่ 1.jpg", // รูปใหม่ที่จะแสดงเมื่อคลิก img1
+                                "C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/ใบงานที่ 2.jpg", // รูปใหม่ที่จะแสดงเมื่อคลิก img2
+                                "C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/ใบงานที่ 3.jpg", // รูปใหม่ที่จะแสดงเมื่อคลิก img3
+                                "C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/ใบงานที่ 4.jpg", // รูปใหม่ที่จะแสดงเมื่อคลิก img4
+                                "C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/ใบงานที่ 5.png", // รูปใหม่ที่จะแสดงเมื่อคลิก img5
+                                "C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/ใบงานที่ 6.jpg", // รูปใหม่ที่จะแสดงเมื่อคลิก img6
+                                "C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/ใบงานที่ 7.jpg"  // รูปใหม่ที่จะแสดงเมื่อคลิก img7
+                            ];
+                    
+                            // ใบงานทั้งหมด
+                            var imgElements = [
+                                document.getElementById("img1"),
+                                document.getElementById("img2"),
+                                document.getElementById("img3"),
+                                document.getElementById("img4"),
+                                document.getElementById("img5"),
+                                document.getElementById("img6"),
+                                document.getElementById("img7")
+                            ];
+                    
+                            // ฟังก์ชันแสดง modal พร้อมรูปที่แตกต่างกันเมื่อคลิกที่ใบงาน
+                            imgElements.forEach(function(img, index) {
+                                img.onclick = function() {
+                                    modal.style.display = "block";
+                                    modalImg.src = imgUrls[index]; // แสดงรูปใหม่ที่สอดคล้องกับใบงานนั้นๆ
+                                };
+                            });
+                    
+                            // เมื่อคลิกที่ปุ่มกากะบาท จะปิด modal
+                            closeBtn.onclick = function() {
+                                modal.style.display = "none";
+                            }
+                    
+                            // เมื่อคลิกที่พื้นที่นอก modal ก็จะปิด
+                            window.onclick = function(event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
+                            }
+                        </script>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</body>
+</html>

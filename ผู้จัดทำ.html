@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผู้จัดทำ</title>
+    <style>
+        /* รีเซ็ตสไตล์พื้นฐาน */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 13.5px;
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* สไตล์ของโมดอล */
+        .modal {
+            display: block; /* แสดงโมดอลเสมอในตัวอย่างนี้ */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5); /* สีพื้นหลังที่มีความโปร่งใส */
+            display: flex; /* ใช้ flexbox เพื่อจัดการตำแหน่งของกล่องโมดอล */
+            align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+            justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+        }
+
+        .modal-content {
+            position: relative;
+            background-image: url('C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/07.12.png');
+            background-size: cover; /* ปรับขนาดภาพให้ครอบคลุมทั้งกล่อง */
+            background-position: center; /* จัดตำแหน่งภาพให้ตรงกลาง */
+            width: 100%; /* กำหนดความกว้างของกล่องโมดอลเป็น 100% ของหน้าจอ */
+            height: 100%; /* กำหนดความสูงของกล่องโมดอลเป็น 100% ของหน้าจอ */
+            max-width: 100%; /* ความกว้างสูงสุดเป็น 100% ของหน้าจอ */
+            max-height: 100%; /* ความสูงสูงสุดเป็น 100% ของหน้าจอ */
+            box-sizing: border-box; /* รวมการเติมและขอบในการคำนวณขนาดรวม */
+            text-align: center; /* จัดแนวข้อความในโมดอลให้ชิดกลาง */
+            color: #000000; /* สีตัวหนังสือ */
+            padding: 20px; /* ขนาดการเติม */
+            border-radius: 10px; /* เพิ่มขอบมน */
+            overflow: auto; /* เพิ่มการเลื่อนเนื้อหาภายใน */
+        }
+
+        .close {
+            color: #ffcc33;
+            font-size: 90px; /* ขนาดตัวอักษรของปุ่มปิด */
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            transition: color 0.3s ease, transform 0.3s ease; /* เพิ่มการเปลี่ยนแปลงสีและขนาด */
+            z-index: 2; /* ให้แน่ใจว่าปุ่มอยู่เหนือเนื้อหาอื่น */
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ff0000; /* เปลี่ยนสีเมื่อวางเมาส์ */
+            text-decoration: none;
+            transform: rotate(90deg); /* หมุนปุ่มปิด */
+        }
+
+        .modal-content h1 {
+    font-size: 3.5em; /* ขนาดตัวอักษรของหัวข้อใหญ่ */
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center; /* จัดตำแหน่งตัวอักษรตรงกลาง */
+}
+
+.modal-content p {
+    font-size: 2em;
+    margin-bottom: 15px;
+    background-color: #ffffffd9;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, font-size 0.3s ease; /* เพิ่ม transition เพื่อให้การขยายดูนุ่มนวล */
+}
+
+.modal-content p:hover {
+    transform: scale(1.2); /* ขยายกล่องข้อความเมื่อเมาส์ไปชี้ */
+    font-size: 2.5em; /* ขยายขนาดตัวอักษรเมื่อชี้ */
+}
+        .executive-name {
+            font-weight: bold; /* ตัวหนา */
+            display: block; /* ขึ้นบรรทัดใหม่ */
+        }
+
+        /* สีหลักของรายชื่อ */
+        .color1 { color: #ff5733; }
+        .color2 { color: #33c4ff; }
+        .color3 { color: #ffcc33; }
+        .color4 { color: #28a745; }
+        .color5 { color: #dc3545; }
+        .color6 { color: #17a2b8; }
+
+        @keyframes textSlide {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1>ประวัติส่วนตัว</h1>
+            <center><img src="C:\Users\Asus\OneDrive\Documents\Thitiporn_014\images\ME.jpg" /><br>
+            <br><br>
+            <p><span style="font-size: 1.25em;"><span class="executive-name color1 ">ข้อมูลส่วนตัว</span></span>
+            ชื่อ : นางสาว ฐิติพร ธาระถ้อย<br>
+            วันเกิด วันจันทร์ ที่ 29 เดือนตุลาคม พ.ศ.2550 อายุ 17 ปี<br>
+            เชื้อชาติ : ไทย สัญชาติ : ไทย ศาสนา : พุทธ หมู่เลือด : AB<br>
+            เป็นบุตรคนที่ 1 มีพี่น้องทั้งหมด 1 คน คือ น้องชาย 1 คน<br>
+            ที่อยู่ปัจจุบัน : บ้านเลขที่ 910 หมู่ 7 ตำบลสำนักท้อน อำเภอบ้านฉาง จังหวัดระยอง 21130<br>
+            หมายเลขโทรศัพท์ : 095-918-2453 อีเมล : mangpor182@gmail.com</p>
+            <br><br>
+            <p><span style="font-size: 1.25em;"><span class="executive-name color2 ">ข้อมูลด้านการศึกษา</span></span>
+            ชั้นประถมศึกษาปีที่ 1 - ชั้นประถมศึกษาปีที่ 6<br>
+            ศึกษาที่ โรงเรียนวัดชากหมาก<br>
+            ชั้นมัธยมศึกษาปีที่ 1 - ชั้นมัธยมศึกษาปีที่ 3<br>
+            ศึกษาที่ โรงเรียนวัดชากหมาก<br>
+            ปัจจุบัน กำลังศึกษาในระดับประกาศนียบัตรวิชาชีพ ชั้นปีที่ 2<br>
+            ศึกษาที่ วิทยาลัยเทคนิคสัตหีบ Thai-Austrian Technical College</span></p>
+            <br><br>
+            <p><span style="font-size: 1.25em;"><span class="executive-name color3">งานอดิเรก</span></span>
+            งานอดิเรก : อ่านหนังนิยาย ดูหนัง ดูซีรี่ย์ ฟังเพลง เล่นเกมส์ เล่นกับแมว<br>
+            สิ่งที่สนใจ : การเขียนโค้ด การเขียนโปรแกรม วิดีโอเกม สนุกเกอร์</span></p>
+            <br><br>
+            <p><span style="font-size: 1.25em;"><span class="executive-name color4">แรงบันดาลใจที่เลือกเรียนคอมพิวเตอร์</span></span>
+           เลือกเรียนคอมพิวเตอร์เพราะมีความชอบในการทำงานกับเทคโนโลยีมาตั้งแต่เด็ก<br>
+            และมองเห็นศักยภาพในการสร้างสรรค์สิ่งใหม่ๆผ่านโลกดิจิทัล การที่ได้เรียนรู้และพัฒนาทักษะในด้านนี้<br>
+            ทำให้รู้สึกตื่นเต้นและท้าทาย นอกจากนี้ยังอยากให้พ่อแม่ภูมิใจที่ได้ทำตามความฝัน และสร้างผลงาน<br>
+            ที่มีความหมายจากสิ่งที่รัก จึงเชื่อว่าสิ่งที่เรียนรู้จะเป็นประโยชน์ในการทำงานและชีวิตในอนาคตข้างหน้า</p>
+            <br><br>
+            <p><span style="font-size: 1.25em;"><span class="executive-name color5">ผลงาน / เกียรติคุณ</span></span>
+ชั้นประถมศึกษาปีที่ 5 เข้าเเข่งขันโครงการ clinic center ท้าให้อ่าน ได้รับรางวัลชนะเลิศอันดับ 1<br>
+ชั้นประถมศึกษาปีที่ 6 เข้าเเข่งขันโครงการ clinic center ท้าให้อ่าน ได้รับรางวัลชนะเลิศอันดับ 1<br>
+ชั้นมัธยมศึกษาปีที่ 3 เข้าเเข่งขันการต่อศัพท์คำคมไทยเดิมระดับจังหวัดระยองได้รับรางวัลเหรียญทอง<br>
+ชั้นมัธยมศึกษาปีที่ 3 เข้าเเข่งขันการต่อศัพท์คำคมไทยเดิมระดับจังหวัดระยองได้รับรางวัลเหรียญเงิน
+    
+         
+        </div>
+    </div>
+
+    <script>
+         function closeModal() {
+            var modal = document.querySelector('.modal');
+            modal.style.display = "none";
+            // Scroll to the top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Redirect to the main page
+            window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+        }
+
+        // ปิดโมดอลเมื่อผู้ใช้คลิกที่ไหนก็ได้ด้านนอก
+        window.onclick = function(event) {
+            var modal = document.querySelector('.modal');
+            if (event.target === modal) {
+                modal.style.display = "none";
+                // Scroll to the top of the page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Redirect to the main page
+                window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+            }
+        }
+    </script>
+</body>
+</html>

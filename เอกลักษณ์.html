@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เอกลักษณ์</title>
+    <style>
+        /* รีเซ็ตสไตล์พื้นฐาน */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 16px;
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* สไตล์ของโมดาล */
+        .modal {
+            display: block;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+    position: relative;
+    background-image: url('C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/07.9.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* จัดข้อความให้อยู่ทางซ้าย */
+    justify-content: center; /* จัดข้อความให้อยู่ตรงกลางแนวตั้ง */
+    text-align: left;
+    color: #ffffff;
+    padding: 20px;
+    padding-left: calc(20px + 3cm); /* ขยับข้อความไปทางขวา 2 เซนติเมตร */
+    animation: fadeIn 1s ease-out;
+}
+
+
+        .modal-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0);
+            z-index: 0;
+        }
+
+        .modal-content h2, .modal-content p, .close {
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-content h2 {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: textGlowing 3s infinite alternate; /* เพิ่มแอนิเมชันแสงที่กระพริบ */
+        }
+
+        .modal-content p {
+            font-size: 2em;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+            color: #000000;
+            background-color:#ffffffd9; /* เพิ่มพื้นหลังที่โปร่งแสง */
+            padding: 10px;
+            border-radius: 10px; /* เพิ่มขอบมน */
+            animation: textSlide 1s ease-out forwards; /* แอนิเมชันเลื่อนข้อความเข้ามา */
+        }
+
+        .modal-content p:hover {   
+    color:  #fa0000;
+            transform: scale(1.05); /* เพิ่มขนาดเล็กน้อยเมื่อ hover */
+        }
+
+        .close {
+    color:  #ffcc33;
+    font-size: 75px; /* ขนาดตัวอักษรของปุ่มปิด */
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: color 0.3s ease, transform 0.3s ease; /* เพิ่มการเปลี่ยนแปลงสีและขนาด */
+    z-index: 2; /* ให้แน่ใจว่าปุ่มอยู่เหนือเนื้อหาอื่น */
+}
+
+.close:hover,
+.close:focus {
+    color:  #fa0000;    /* เปลี่ยนสีเมื่อวางเมาส์ */
+    text-decoration: none;
+    transform: rotate(90deg); /* หมุนปุ่มปิด */
+}
+
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        
+
+        @keyframes textSlide {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .modal-content p {
+    font-size: 2em;
+    margin-bottom: 15px;
+    background-color: #ffffffd9;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, font-size 0.3s ease; /* เพิ่ม transition เพื่อให้การขยายดูนุ่มนวล */
+}
+
+.modal-content p:hover {
+    transform: scale(1.2); /* ขยายกล่องข้อความเมื่อเมาส์ไปชี้ */
+    font-size: 3.5em; /* ขยายขนาดตัวอักษรเมื่อชี้ */
+}
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>อัตลักษณ์</h2>
+            <p>ทักษะเยี่ยม เปี่ยมคุณธรรม</p>
+            <h2>เอกลักษณ์</h2>
+            <p>มุ่งผลิตกำลังคน ที่มีสมรรถนะ และคุณภาพสู่สากล</p>
+        </div>
+    </div>
+
+    <script>
+         function closeModal() {
+            var modal = document.querySelector('.modal');
+            modal.style.display = "none";
+            // Scroll to the top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Redirect to the main page
+            window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+        }
+
+        // ปิดโมดอลเมื่อผู้ใช้คลิกที่ไหนก็ได้ด้านนอก
+        window.onclick = function(event) {
+            var modal = document.querySelector('.modal');
+            if (event.target === modal) {
+                modal.style.display = "none";
+                // Scroll to the top of the page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Redirect to the main page
+                window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+            }
+        }
+    </script>
+</body>
+</html>

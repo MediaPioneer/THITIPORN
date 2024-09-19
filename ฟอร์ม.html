@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟอร์ม</title>
+    <style>
+        /* ขนาดฟอนต์พื้นฐาน */
+        body {
+            background-image: url("C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/07.14.png"); /* ใส่ภาพพื้นหลัง */
+            background-size: cover; /* ขยายภาพพื้นหลังให้เต็มหน้าจอ */
+            background-position: center; /* จัดภาพพื้นหลังให้อยู่กลางหน้าจอ */
+            background-attachment: fixed; /* ทำให้พื้นหลังไม่เลื่อนตามฟอร์ม */
+            background-color: #f4f4f4; /* สีพื้นหลังที่ใช้ถ้าไม่สามารถโหลดภาพพื้นหลัง */
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 50px auto; /* ตั้งฟอร์มอยู่กลางหน้าจอ */
+            position: relative;
+        }
+
+        .close {
+            color: #ffce3c;
+            font-size: 75px; /* ขนาดตัวอักษรของปุ่มปิด */
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            transition: color 0.3s ease, transform 0.3s ease; /* เพิ่มการเปลี่ยนแปลงสีและขนาด */
+            z-index: 2; /* ให้แน่ใจว่าปุ่มอยู่เหนือเนื้อหาอื่น */
+        }
+
+        .close:hover,
+        .close:focus {
+            color: hsl(0, 100%, 50%); /* เปลี่ยนสีเมื่อวางเมาส์ */
+            text-decoration: none;
+            transform: rotate(90deg); /* หมุนปุ่มปิด */
+        }
+
+        h1 {
+            color:#1d1d9c; /* สีตัวหนังสือของหัวข้อ */
+            font-size: 2.5em; /* ขนาดตัวหนังสือของหัวข้อ */
+        }
+
+        label {
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+            font-size: 1.2em; /* ขนาดตัวหนังสือของป้ายกำกับ */
+            display: block; /* ทำให้ป้ายกำกับแสดงในบรรทัดใหม่ */
+            margin-bottom: 5px; /* เพิ่มระยะห่างด้านล่าง */
+        }
+
+        input[type="submit"], input[type="reset"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 1.2em; /* ขนาดตัวหนังสือของปุ่ม */
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+
+        }
+
+        input[type="reset"] {
+            background-color: #f44336;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+            width: calc(100% - 22px); /* ปรับขนาดให้ไม่เกินขอบเขตของฟอร์ม */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.8); /* เพิ่มความโปร่งใสให้กับ input fields */
+            color: black; /* สีตัวหนังสือของ input fields เป็นสีดำ */
+            font-size: 1.1em; /* ขนาดตัวหนังสือของ input fields */
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+
+        }
+
+        textarea {
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+            font-size: 1.1em; /* ขนาดตัวหนังสือของ textarea */
+        }
+
+        /* ขนาดตัวหนังสือของตัวเลือกศาสนา */
+        .religion-label {
+            font-size: 1.2em; /* ขนาดตัวหนังสือของตัวเลือกศาสนา */
+            margin-right: 15px; /* เพิ่มระยะห่างระหว่างตัวเลือก */
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px; /* เพิ่มระยะห่างระหว่างช่องทำเครื่องหมายและข้อความ */
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post" enctype="multipart/form-data">
+        <div class="close" onclick="closeForm()">×</div> <!-- ปุ่มปิด -->
+        <h1>กรอกข้อมูลลงทะเบียน</h1>
+        <label>ชื่อ-นามสกุล</label>
+        <input name="name" type="text" size="30" maxlength="30"><br><br>
+
+        วัน/เดือน/ปีเกิด<br>
+        <select name="day">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+        </select>
+        <select name="month">
+            <option value="1">มกราคม</option>
+            <option value="2">กุมภาพันธ์</option>
+            <option value="3">มีนาคม</option>
+            <option value="4">เมษายน</option>
+            <option value="5">พฤษภาคม</option>
+            <option value="6">มิถุนายน</option>
+            <option value="7">กรกฎาคม</option>
+            <option value="8">สิงหาคม</option>
+            <option value="9">กันยายน</option>
+            <option value="10">ตุลาคม</option>
+            <option value="11">พฤศจิกายน</option>
+            <option value="12">ธันวาคม</option>
+        </select>
+        <select name="year">
+            <option value="2560">พ.ศ. 2560</option>
+            <option value="2559">พ.ศ. 2559</option>
+            <option value="2558">พ.ศ. 2558</option>
+            <option value="2557">พ.ศ. 2557</option>
+            <option value="2556">พ.ศ. 2556</option>
+            <option value="2555">พ.ศ. 2555</option>
+            <option value="2554">พ.ศ. 2554</option>
+            <option value="2553">พ.ศ. 2553</option>
+            <option value="2552">พ.ศ. 2552</option>
+            <option value="2551">พ.ศ. 2551</option>
+            <option value="2550">พ.ศ. 2550</option>
+        </select><br><br>
+
+        <label>เพศ</label>
+        <input type="radio" name="gender" value="male"> เพศชาย
+        <input type="radio" name="gender" value="female"> เพศหญิง<br><br>
+
+        สถานะ<br>
+        <select name="marital_status">
+            <option value="single">โสด</option>
+            <option value="married">สมรส</option>
+            <option value="divorced">หย่าร้าง</option>
+            <option value="widowed">หม้าย</option>
+            <option value="separated">แยกกันอยู่</option>
+            <option value="in_relationship">อยู่ในความสัมพันธ์</option>
+            <option value="engaged">หมั้น</option>
+            <option value="common_law">คู่ชีวิต (Common-law)</option>
+            <option value="living_together">อยู่ร่วมกัน</option>
+            <option value="polyamorous">มีความสัมพันธ์หลายฝ่าย</option>
+            <option value="long_distance">ความสัมพันธ์ระยะไกล</option>
+            <option value="other">อื่นๆ</option>
+        </select><br><br>
+
+        <label>ศาสนา</label><br>
+        <label class="religion-label"><input type="checkbox" name="religion" value="buddhism">พุทธ</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="christianity">คริสต์</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="islam">อิสลาม</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="hinduism">ฮินดู</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="sikhism">ซิกข์</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="jewish">ยิว</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="taoism">เต๋า</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="shinto">ชินโต</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="bahai">บาฮาอี</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="zoroastrianism">ซอโรอัสเตอร์</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="jainism">เจน</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="none">ไม่มีศาสนา</label>
+        <label class="religion-label"><input type="checkbox" name="religion" value="other">อื่นๆ</label><br><br>
+
+        <label>ที่อยู่</label>
+        <textarea name="address" cols="50" rows="7"></textarea><br><br>
+
+        <label>เบอร์ติดต่อ</label>
+        <input name="phone" type="text" size="30" maxlength="30"><br><br>
+
+        <label>E-mail</label>
+        <input name="email" type="text" size="30" maxlength="30"><br><br>
+
+        <label>Password</label>
+        <input name="password" type="password" size="30" maxlength="30"><br><br>
+
+        <label>กรุณาอัปโหลดไฟล์</label>
+        <input type="file" name="img"><br><br>
+
+        <input type="submit" name="submit" value="ส่งข้อมูล">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" name="reset" value="ยกเลิก">
+    </form>
+    <script>
+        function closeForm() {
+            window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าโฮมที่คุณต้องการ
+        }
+    </script>
+</body>
+</html>

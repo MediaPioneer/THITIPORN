@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นโยบาย</title>
+    <style>
+        /* รีเซ็ตสไตล์พื้นฐาน */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 16px; /* ขนาดตัวหนังสือเริ่มต้นใน body */
+            font-family: 'PK Maehongson Round Demo', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* สไตล์ของโมดอล */
+        .modal {
+            display: block; /* แสดงโมดอลเสมอในตัวอย่างนี้ */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5); /* สีพื้นหลังที่มีความโปร่งใส */
+            display: flex; /* ใช้ flexbox เพื่อจัดการตำแหน่งของกล่องโมดอล */
+            align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+            justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+        }
+
+        .modal-content {
+            position: relative;
+            background-image: url('C:/Users/Asus/OneDrive/Documents/Thitiporn_014/images/07.13.png');
+            background-size: cover; /* ปรับขนาดภาพให้ครอบคลุมทั้งกล่อง */
+            background-position: center; /* จัดตำแหน่งภาพให้ตรงกลาง */
+            width: 100%; /* กำหนดความกว้างของกล่องโมดอลเป็น 100% ของหน้าจอ */
+            height: 100%; /* กำหนดความสูงของกล่องโมดอลเป็น 100% ของหน้าจอ */
+            max-width: 100%; /* ความกว้างสูงสุดเป็น 100% ของหน้าจอ */
+            max-height: 100%; /* ความสูงสูงสุดเป็น 100% ของหน้าจอ */
+            box-sizing: border-box; /* รวมการเติมและขอบในการคำนวณขนาดรวม */
+            text-align: center; /* จัดแนวข้อความในโมดอลให้ชิดกลาง */
+            color: #ffffff; /* สีตัวหนังสือ */
+            padding: 20px; /* ขนาดการเติม */
+            border-radius: 10px; /* เพิ่มขอบมน */
+            overflow: auto; /* เพิ่มการเลื่อนเนื้อหาภายใน */
+   
+        }
+
+        .close {
+    color:  #ffcc33;
+    font-size: 75px; /* ขนาดตัวอักษรของปุ่มปิด */
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: color 0.3s ease, transform 0.3s ease; /* เพิ่มการเปลี่ยนแปลงสีและขนาด */
+    z-index: 2; /* ให้แน่ใจว่าปุ่มอยู่เหนือเนื้อหาอื่น */
+}
+
+.close:hover,
+.close:focus {
+    color: #ff9500; /* เปลี่ยนสีเมื่อวางเมาส์ */
+    text-decoration: none;
+    transform: rotate(90deg); /* หมุนปุ่มปิด */
+}
+
+.modal-content h1 {
+    font-size: 3.5em; /* ขนาดตัวอักษรของหัวข้อใหญ่ */
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center; /* จัดตำแหน่งตัวอักษรตรงกลาง */
+}
+
+        .modal-content h2 {
+            font-size: 2em; /* ขนาดตัวอักษรของหัวข้อรอง */
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px #ffcc33;
+        }
+
+        .modal-content p {
+    font-size: 1.5em; /* ขนาดตัวอักษรของข้อความ */
+    margin-bottom: 15px;
+    color: #000000;
+    background-color: #ffffffd9;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease; /* การเปลี่ยนแปลงทุกอย่างนุ่มนวล */
+    transform: translateY(0); /* ตำแหน่งเริ่มต้น */
+}
+
+.modal-content p:hover {
+    transform: translateY(-2px) scale(1.02); /* เด้งขึ้นเล็กน้อยและขยายเล็กน้อย */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
+    background-color: #f5f5f5; /* เปลี่ยนสีพื้นหลัง */
+    color: #000078;
+}
+   
+
+.modal-content p:hover b {
+    color: rgb(218, 0, 62); /* เปลี่ยนสีของข้อความที่อยู่ในแท็ก <b> เป็นสีแดงเมื่อชี้ */
+}
+    
+
+        @keyframes textSlide {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .left-align {
+    text-align: left; /* จัดข้อความให้ชิดซ้าย */
+}
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h1>นโยบายของวิทยาลัย</h1>
+                <hr size="2" color="#ffffff">
+                <p>เพื่อให้การดำเนินงานของวิทยาลัยเทคนิคสัตหีบ สอดคล้องกับนโยบายกรมอาชีวศึกษา และในการดำเนินงานของกองวิทยาลัยเทคนิค
+                    วิทยาลัยเทคนิคสัตหีบจึงขอสรุปสาระสำคัญของนโยบาย และแนวทางดำเนินงานดังกล่าว เพื่อใช้เป็นทิศทางในการปฎิบัติงานให้เกิดผลดี
+                    ในทางปฏิบัติ<b>อย่างจริงจัง</b>
+                </p>
+            
+                <!-- แบ่งส่วนของข้อความที่ต้องการจัดชิดซ้าย -->
+                <div class="left-align">
+                    <p> <b>1. </b> การสอนของครู-อาจารย์ทั้งวิชาสามัญ ทฤษฎี และภาคปฏิบัติให้เน้นเรื่องการเข้าสอนตรงเวลาการสอนเต็มเวลา ตรงตามตารางสอน<br>
+                        <b>2. </b>การจัดทำสื่อการเรียนการสอนรายวิชาต่างๆในรูปแบบของ แผ่นใส สไลด์ วีดีทัศน์ บทเรียนคอมพิวเตอร์และชุดฝีกเป็นต้น<br>
+                        <b>3. </b> การเขียนแผนการสอน หรือโครงการสอนของทุกรายวิชาในทุกๆภาคเรียน<br>
+                        <b>4. </b> ครูอาจารย์ประเมินผลตรงตามหลักสูตรและส่งผลการเรียนตรงตามเวลาที่กำหนด<br>
+                        <b>5. </b> ปรับปรุง และพัฒนาห้องเรียนและห้องปฏิบัติการวิทยาศาสตร์ให้เพียงพอและทันสมัย<br>
+                        <b>6. </b> ปรับปรุง และพัฒนาห้องปฏิบัติการทางภาษา<br>
+                        <b>7. </b> ปรับปรุงและพัฒนาห้องปฏิบัติการคอมพิวเตอร์<br>
+                        <b>8. </b> ส่งเสริมประดิษฐ์ สิ่งประดิษฐ์ของคนรุ่นใหม่ โดยมุ่งเน้นคุณภาพ ปริมาณ และการมีส่วนร่วมของนักศึกษา<br>
+                        <b>9. </b> ส่งเสริมและสนับสนุนการทำโครงงานวิทยาศาสตร์<br>
+                        <b>10. </b> การแต่งกาย การตรงต่อเวลา ความรับผิดชอบ และความสามัคคีของนักเรียนนักศึกษา<br>
+                        <b>11. </b> จัดและตกแต่งวิทยาลัยให้ สะอาด สวยงาม ร่มรื่น<br>
+                        <b>12. </b> จัดที่นั่งและบริเวณที่พักผ่อนสำหรับนักศึกษา<br>
+                        <b>13. </b> ความสะอาดความเป็นระเบียบของห้องเรียน อาคาร โรงฝึกงาน ห้องปฏิบัติการ โรงอาหาร <br>
+                        <b>14. </b> ปรับปรุงห้องน้ำครู-อาจารย์ และห้องน้ำนักศึกษา เน้นความพร้อมและสะอาด<br>
+                        <b>15. </b> ปรับปรุงและพัฒนาห้องเครื่องมือ( Tool Room )ของทุกโรงงาน ทุกสาขาวิชาชีพให้ได้มาตรฐานเหมาะสม มีเครื่องมือเบื้องต้นครบ<br>
+                        <b>16. </b> จัดให้มีรับงานการค้า เพื่อหารายได้สนับสนุน การพัฒนาวิทยาลัยอย่างมีระบบ และยึดระเบียบ<br>
+                        <b>17. </b> จัดการเรียนการสอนระบบทวิภาคีในแผนกวิชาที่มีความพร้อม สามารถรับนักศึกษาได้<br>
+                        <b>18. </b> จัดการเรียนการสอนสนับสนุนสำหรับคนพิการ และคนด้อยโอกาสทางสังคม<br>
+                        <b>19. </b> ปรับปรุง และพัฒนางาน ทะเบียน งานวัดผลประเมินผล ศูนย์ข้อมูลโดยใช้ระบบคอมพิวเตอร์ร่วมกันอย่างเป็นระบบ<br>
+                        <b>20. </b> จัดปรับปรุงห้องสมุดให้มีครุภัณฑ์เพียงพอกับจำนวนนักศึกษาและเป็นห้องสมุดเทคโนโลยี<br>
+                        <b>21. </b> จัดกิจกรรมของนักศึกษาอย่างเป็นระบบ สามารถตรวจสอบได้<br>
+                        <b>22. </b> เพิ่มโอกาสทางการศึกษา และเรียนรู้อย่างทั่วถึง<br>
+                        <b>23. </b> มีการพัฒนา 4 ใหม่ คือคนไทยยุคใหม่ ครูยุคใหม่ แหล่งเรียนรู้ใหม่ ระบบการบริการจัดการใหม่ <br>
+                        <b>24. </b> พัฒนาระบบคุณวุฒิวิชาชีพเชื่อมโยงระหว่างภาครัฐและเอกชนเพื่อยกระดับคุณภาพสู่สากล
+                    </p>
+                </div>
+            </div>
+            
+
+            <script>
+                  function closeModal() {
+            var modal = document.querySelector('.modal');
+            modal.style.display = "none";
+            // Scroll to the top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Redirect to the main page
+            window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+        }
+
+        // ปิดโมดอลเมื่อผู้ใช้คลิกที่ไหนก็ได้ด้านนอก
+        window.onclick = function(event) {
+            var modal = document.querySelector('.modal');
+            if (event.target === modal) {
+                modal.style.display = "none";
+                // Scroll to the top of the page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Redirect to the main page
+                window.location.href = 'index.html'; // เปลี่ยน 'index.html' เป็น URL ของหน้าแรกของคุณ
+            }
+        }
+            </script>
+</body>
+</html>
